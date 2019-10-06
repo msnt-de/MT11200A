@@ -1,0 +1,9 @@
+main
+	__CC2DW
+	Init_uP
+	ADC_Init
+	Runlight
+	ADC_Get_Sample
+		Delay_22us
+	Div_16X16_U
+interrupt
