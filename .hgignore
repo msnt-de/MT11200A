@@ -1,0 +1,33 @@
+syntax: glob
+*.asm
+*.bmk
+*.brk
+*.cof
+*.cp
+*.dbg
+*.dct
+*.dic
+*.dlt
+*.ini
+*.jpg
+*.png
+*.log
+*.lst
+*.mcl
+*.old
+*.txt
+*.wch
+*.bak
+
+
+#ignore temporary and Archive (if any)
+^/bin/
+^/Temp/
+^/temp/
+^/Archiv/
+^/Tests/
+
+
+#ignore compiled libraries
+*.emcl
+

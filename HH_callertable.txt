@@ -5,5 +5,4 @@ main
 	Runlight
 	ADC_Get_Sample
 		Delay_22us
-	Div_16X16_U
 interrupt

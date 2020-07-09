@@ -2,11 +2,12 @@
 *
 *  Unit:         HH.Timer main
 *
-*  Copyright:    (c) MSNT GmbH Hamburg 2019
+*  Copyright:    dedicated to open source community
+*                Initial (c) MSNT GmbH Hamburg 2020
 *
-*  Description:  Simple Runlight on all leds
-*                Time settable with P3
-*                Also out relays test
+*  Description:  Runlight demo on all leds
+*                Blinking period set by P3
+*                Relays test for out relays
 *
 *  Controller:   PIC16F1459
 *
@@ -56,8 +57,7 @@ sbit io_6_Direction at TRISB7_bit;
 
 
 // globals
-unsigned int guiTimer10ms = 0;  // global better as passing var to interrupt
-unsigned int P1, P2, P3;        //!! Just for test, move to analog in unit if exist
+unsigned int guiTimer10ms = 0;  // global avoids passing var to interrupt
 
 
 volatile void interrupt()
@@ -156,7 +156,7 @@ static PortNr = 0;
 
 }
 
-void OneSecondPulse(void) {
+/*void OneSecondPulse(void) {
 static unsigned Timer1sLast;
 
   if (guiTimer10ms - Timer1sLast > 100) {  //  > 1 second difference
@@ -172,12 +172,13 @@ void Toggle_StatusLed(void){
       StatusLed_Direction = 0;        // Port out
       StatusLed = ~StatusLed;
 }
+*/
 
-
-void main(void) 
-{
+void main(void) {
 int  i;
-  
+unsigned P1;
+
+
   Init_uP();
   delay_ms(1000);             //stable clock !!?? 200ms ok, 1s just for visual check
 
@@ -189,8 +190,8 @@ int  i;
   ANSC3_bit = 1;   // P2
   ANSC2_bit = 1;   // P3
 
-  TMR1IE_bit = 1;   // Enable timer interrupt
-  GIE_bit = 1;        // Enable global interrupt
+//  TMR1IE_bit = 1;   // Enable timer interrupt
+//  GIE_bit = 1;        // Enable global interrupt
 
   StatusLed_Direction = 0; // Out
   while ( 1 ) {
