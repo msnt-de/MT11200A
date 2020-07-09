@@ -1,2 +1,5 @@
 # MT11200A
-MT11200A rugged controller runlight demo with blinky
+Runlight demo with blinky
+MT11200A a rugged controller for harsh environtments 
+https://www.tight-devices.net/en/
+
